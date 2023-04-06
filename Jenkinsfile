@@ -55,8 +55,7 @@ pipeline {
                 
                   script {
                     bat "minikube start --force-systemd"
-                    // create the service and deployment for kubernetes
-
+                  
                 }
             }
        }
