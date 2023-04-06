@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: coin-change
+  name: coin-change
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: coin-change
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: coin-change
+    spec:
+      containers:
+      - image: docker.io/saadmakhdoom/coin-change
+        name: coin-change
+        imagePullPolicy: Always
+        resources: {}
+        ports:
+          - containerPort: 8080
+status: {}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: coin-change
+  labels:
+    run: coin-change
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+  selector:
+    app: python-api
+  type: NodePort
