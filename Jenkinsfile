@@ -42,7 +42,7 @@ pipeline {
                         withDockerRegistry([credentialsId: "saadmakhdoom-dockerhub", url: ""]) {
                             dockerImage.push()
                         }
-                        sh 'docker run -d -p 8090:8090 saadmakhdoom/coin-change:latest'
+                        sh 'docker run -d -p 8090:8080 saadmakhdoom/coin-change:latest'
                     }else{
                         error "Docker image build failed."
                     }
