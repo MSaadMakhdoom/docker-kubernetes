@@ -50,6 +50,17 @@ pipeline {
             }
         }
         
+       stage('Deploy the image from Docker Hub to kubernetes') {
+            steps {
+                
+                  script {
+                    bat "minikube start --force-systemd"
+                    // create the service and deployment for kubernetes
+
+                }
+            }
+       }
+        
     }
     post {
         always {
